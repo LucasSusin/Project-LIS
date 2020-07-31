@@ -34,7 +34,7 @@ type
 var
   lisMain: TlisMain;
   sp, key: integer;
-  Arq: TextFile; { declarando a vari·vel "arq" do tipo arquivo texto }
+  Arq: TextFile; { declarando a vari√°vel "arq" do tipo arquivo texto }
   DestinoArq: string;
 
 implementation
@@ -43,11 +43,11 @@ implementation
 
 uses UntSplashScreen;
 
-procedure SaveMessagePC();     // Caso o usu·rio n„o tenha o arquivo no mesmo local que o exe, ele cria uma cÛpia
+procedure SaveMessagePC();     // Caso o usu√°rio n√£o tenha o arquivo no mesmo local que o exe, ele cria uma c√≥pia
 begin
 
   DestinoArq := ExtractFilePath(Application.ExeName) + 'SecretMessage.txt';
-  // Define que o destino da key È no mesmo local do execut·vel.
+  // Define que o destino da key √© no mesmo local do execut√°vel.
   AssignFile(Arq, DestinoArq);
   Rewrite(Arq);
   Writeln(Arq,
@@ -74,7 +74,7 @@ begin
 
   Memo1.Clear;      // Limpando o memo
 
-  // Verifica se o arquivo "SecretMessage.txt" existe na unidade de disco, caso n„o tenha cria um
+  // Verifica se o arquivo "SecretMessage.txt" existe na unidade de disco, caso n√£o tenha cria um
   if fileexists('SecretMessage.txt') = false then
   begin
 
@@ -87,10 +87,10 @@ begin
   result := '';
   msg := '';
 
-  // Loop que lÍ o arquivo e escreve na tela
+  // Loop que l√™ o arquivo e escreve na tela
 
-  Reset(Arq); // Ponteiro no inÌcio do arquivo
-  while not Eof(Arq) do // Para verificar o fim do arquivo, funÁ„o Eof
+  Reset(Arq); // Ponteiro no in√≠cio do arquivo
+  while not Eof(Arq) do // Para verificar o fim do arquivo, fun√ß√£o Eof
   begin
 
     ReadLn(Arq, linha);
@@ -105,7 +105,7 @@ begin
   keyFound := false;
   key := 0;
 
-  while keyFound = false do          // Enquanto n„o encontrar a key ele continua testando todas possibilidades
+  while keyFound = false do          // Enquanto n√£o encontrar a key ele continua testando todas possibilidades
   begin
     for key := 0 to 29 do
     begin
@@ -525,7 +525,7 @@ begin
 
         nova := nova + charR;
         charR2 := result[z + 1];
-        nova := nova + charR2;                // Verifica a frase dpulando uma letra mas de 3 em 3
+        nova := nova + charR2;                // Verifica a frase pulando uma letra, mas de 3 em 3
         charR3 := result[z + 2];              // Exemplo: ABCDEF -> ABC -> BCD -> CDE -> DEF....
         nova := nova + charR3;
 
@@ -580,7 +580,7 @@ begin
           if keyFoundI = 2 then
           begin
 
-            keyFound := true;            // Necess·rio encontrar 2 dessas palavras para ter certeza da decriptaÁ„o
+            keyFound := true;            // Necess√°rio encontrar 2 dessas palavras para ter certeza da decripta√ß√£o
 
           end;
 
@@ -599,7 +599,7 @@ begin
 
   Memo1.Lines.Add(result);
 
- // ShowMessage(IntToStr(key));     mostra o n˙mero da key descoberta
+ // ShowMessage(IntToStr(key));     mostra o n√∫mero da key descoberta
 
 end;
 
@@ -616,7 +616,7 @@ end;
 procedure TlisMain.FormShow(Sender: TObject);
 begin
 
-  // vari·vel para aparecer splash screen
+  // vari√°vel para aparecer splash screen
 
   if sp = 0 then
     begin
@@ -632,20 +632,20 @@ procedure TlisMain.LinkLabelGithubLinkClick(Sender: TObject; const Link: string;
   LinkType: TSysLinkType);
 begin
 
-  ShellExecute(0, nil, PChar(Link), nil, nil, 1);    // Link clic·vel do github
+  ShellExecute(0, nil, PChar(Link), nil, nil, 1);    // Link clic√°vel do github
 
 end;
 
 procedure TlisMain.Timer1Timer(Sender: TObject);
 begin
 
-  ProgressBar1.Visible := true;                                // Barra de progress„o
+  ProgressBar1.Visible := true;                                // Barra de progress√£o
   ProgressBar1.Position := ProgressBar1.Position + 10;
 
 end;
 
 Initialization
 
-sp := 0;      // Vari·vel splash screen off
+sp := 0;      // Vari√°vel splash screen off
 
 end.
